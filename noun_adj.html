@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Noun Adj Numbers Calculator</h1>
+
+<script>
+var word1 = document.createElement("INPUT");
+word1.setAttribute("type", "text");
+document.body.appendChild(word1)
+var word2 = document.createElement("INPUT");
+word2.setAttribute("type", "text");
+document.body.appendChild(word2)
+
+
+var allEndings = [['a', [112,123,423]], ['ae', [122,212,312,213]], ['ārum', [222]], ['īs', [322,522,323,523]], ['am', [412]],
+            ['ās', [422]], ['ā', [512,513]], ['us', [111]], ['ī', [121,211,213,311,313]], ['ōrum', [211,223]],
+            ['ō', [311,511,313,513]], ['um', [411,113,413]], ['ōs', [421]], ['ēs', [121,421,112,122,422]], ['is', [211,213,111]],
+            ['em', [411,421]], ['e', [511,513,413]], ['ia', [123,423]], ['ium', [221,223]], ['ūs', [121,211,213,421]],
+            ['ū', [113,313,413,513,511]], ['ua', [123,423]], ['uum', [221,223]], ['uī', [311]], ['eī', [212,312,213]],
+            ['ērum', [222,221]], ['ēbus', [322,522,321,521]], ['ē', [512]], ['ēī', [212,312,211,311]], ['ibus', [321,521,323,523]]];
+
+function wordSolver(){
+    var words = [word1.value, word2.value];
+    var availableEndings = [];
+    var unknownWord = false;
+    var output = false;
+    for (let a = 0; a < words.length; a++) {
+        var tempList = [];
+        for (let b = 0; b < allEndings.length; b++) {
+            if (words[a].endsWith(allEndings[b][0]) == true){
+                tempList.push(allEndings[b][0]);
+            }
+        }
+        availableEndings.push(tempList);
+    }
+    if (availableEndings[0].length >= 1 && availableEndings[1].length >= 1){
+        for (let a = 0; a < availableEndings.length; a++) {
+            var longestWord = '';
+            for (let b = 0; b < availableEndings[a].length; b++) {
+                if (availableEndings[a][b].length >= longestWord.length){
+                    longestWord = availableEndings[a][b];
+                }
+            }
+            availableEndings[a] = longestWord
+        }
+    }
+    else{
+        unknownWord = true;
+    }
+
+    if (unknownWord == false){
+        var endingNumbers = [];
+        for (let a = 0; a < availableEndings.length; a++) {
+            for (let b = 0; b < allEndings.length; b++) {
+                if (availableEndings[a] == allEndings[b][0]){
+                    endingNumbers.push(allEndings[b][1])
+                }
+            }
+        }
+        for (let a = 0; a < endingNumbers[0].length; a++) {
+            if (endingNumbers[1].includes(endingNumbers[0][a])){
+                output = true;
+            }
+        }
+    }
+
+    if (output == true){
+        document.getElementById("outputText").innerHTML = "Output: yes";
+    }
+    else{
+        document.getElementById("outputText").innerHTML = "Output: no";
+    }
+
+    console.log(output);
+}
+</script>
+
+<button onclick="wordSolver()">Solve</button>
+
+<h3 id="outputText">Output:</h3>
+
+</body>
+</html>
