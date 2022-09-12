@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <body>
 
 <a href="index.html">back</a>
-            
-<h1>Noun Adj Numbers Calculator</h1>
+
+<h1>Noun Adjective Help</h1>
+<h2>Section1: The basics and freebies</h2>
+
+<img src="noun_adj\example1.png" alt="example1">
 
 <script>
-var word1 = document.createElement("INPUT");
-word1.setAttribute("type", "text");
-document.body.appendChild(word1)
-var word2 = document.createElement("INPUT");
-word2.setAttribute("type", "text");
-document.body.appendChild(word2)
-
 
 var allEndings = [['a', [112,123,423]], ['ae', [122,212,312,213]], ['ārum', [222]], ['īs', [322,522,323,523]], ['am', [412]],
             ['ās', [422]], ['ā', [512,513]], ['us', [111]], ['ī', [121,211,213,311,313]], ['ōrum', [211,223]],
@@ -21,6 +18,44 @@ var allEndings = [['a', [112,123,423]], ['ae', [122,212,312,213]], ['ārum', [22
             ['em', [411,421]], ['e', [511,513,413]], ['ia', [123,423]], ['ium', [221,223]], ['ūs', [121,211,213,421]],
             ['ū', [113,313,413,513,511]], ['ua', [123,423]], ['uum', [221,223]], ['uī', [311]], ['eī', [212,312,213]],
             ['ērum', [222,221]], ['ēbus', [322,522,321,521]], ['ē', [512]], ['ēī', [212,312,211,311]], ['ibus', [321,521,323,523]]];
+
+const body = document.body,
+tbl = document.createElement('table');
+tbl.style.width = '100px';
+tbl.style.border = '1px solid black';
+
+for (let i = 0; i < 6; i++) {
+    const tr = tbl.insertRow();
+    for (let j = 0; j < allEndings.length; j++) {
+        const td = tr.insertCell();
+        if (i == 0){
+            td.appendChild(document.createTextNode(`${allEndings[j][0]}`));
+        }
+        else{
+            if (allEndings[j][1][i-1] != undefined){
+                td.appendChild(document.createTextNode(`${allEndings[j][1][i-1]}`));
+            }
+            else{
+                td.appendChild(document.createTextNode(` `));
+            }
+        }
+        td.style.border = '1px solid black';
+    }
+}
+body.appendChild(tbl);
+
+</script>
+
+<h1> </h1>
+
+<script>
+
+var word1 = document.createElement("INPUT");
+word1.setAttribute("type", "text");
+document.body.appendChild(word1)
+var word2 = document.createElement("INPUT");
+word2.setAttribute("type", "text");
+document.body.appendChild(word2)
 
 function wordSolver(){
     var words = [word1.value, word2.value];
@@ -68,10 +103,10 @@ function wordSolver(){
     }
 
     if (output == true){
-        document.getElementById("outputText").innerHTML = "Output: yes";
+        document.getElementById("outputText").innerHTML = "Predicted Output: yes";
     }
     else{
-        document.getElementById("outputText").innerHTML = "Output: no";
+        document.getElementById("outputText").innerHTML = "Predicted Output: no";
     }
 
     console.log(output);
@@ -80,7 +115,7 @@ function wordSolver(){
 
 <button onclick="wordSolver()">Solve</button>
 
-<h3 id="outputText">Output:</h3>
+<h3 id="outputText">Predicted Output:</h3>
 
 </body>
 </html>
