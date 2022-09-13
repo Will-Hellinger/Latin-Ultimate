@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="https://lthslatin.org/favicon.ico">
+  	<title>Latin Ultimate</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+	  		<h1><a href="index.html" class="logo">Latin Ultimate</a></h1>
+        <ul class="list-unstyled components mb-5">
+          <li>
+            <a href="index.html">Home Page</a>
+          </li>
+          <li>
+            <a href="#">Synopsis</a>
+          </li>
+          <li>
+            <a href="#">Conjugation</a>
+          </li>
+          <li>
+            <a href="#">Latin Dictionary</a>
+          </li>
+          <li class="active">
+            <a href="noun_adj.html">Noun Adjective</a>
+          </li>
+          <li>
+            <a href="#">Ifinitive Morphology</a>
+          </li>
+          <li>
+            <a href="#">Party with the Ciples</a>
+          </li>
+          <li>
+            <a href="credits.html">Credits</a>
+          </li>
+        </ul>
+
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Noun Adjective</h2>
+        <h3>Section 1: The basics and freebies</h3>
+        <img src="images\noun_adj_example1.png" alt="example1" max-width = 100% height = auto width = auto>
+        <p>Each question has a latin noun and adjective. You can tell which is the noun by the text at the bottom: whichever one has the gender abreviation letter (f. m. or n.). In this case, you can tell that Solomonem is the noun because in the little text at the bottom, it has a m. next to it. The other word is going to be the adjective. All nouns and adjectives have three characteristics that have to agree/be the same: number case and gender. The following are all the possible numbers cases and genders.</p>
+
+
+        <table style="width:25%" >
+          <tr>
+            <th>Gender</th>
+            <th>Case</th>
+            <th>Number</th>
+          </tr>
+          <tr>
+            <td>Feminine</td>
+            <td>Nominative</td>
+            <td>Singular</td>
+          </tr>
+          <tr>
+            <td>Masculine (m.)</td>
+            <td>Genitive</td>
+            <td>Plural</td>
+          </tr>
+          <tr>
+            <td>Neuter (n.)</td>
+            <td>Dative</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Accusative</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Ablative</td>
+            <td></td>
+          </tr>
+        </table>
+
+
+        <p>All three of these <strong>must</strong> agree for you to put yes. Put no if any one <strong>doesn't</strong> agree</p>
+        <p><strong>The following endings will always agree no matter what. You should still be careful when looking at these however because -is is different from -īs</strong></p>
+        <table style="width:25%" >
+          <tr>
+            <th><mark>-īs</mark></th>
+          </tr>
+          <tr>
+            <td><mark><strong>-ibus</strong></mark></td>
+          </tr>
+          <tr>
+            <td><mark><strong>-ebus</strong></mark></td>
+          </tr>
+          <tr>
+            <td><mark><strong>-ābus</strong></mark></td>
+          </tr>
+          <tr>
+            <td><mark><strong>-ōbus</strong></mark></td>
+          </tr>
+        </table>
+
+        <h3>Section 2: Helpful Tools: (Latin Lexicon and Inbuilt Chart Solver)</h3>
+        <p>Aside from freebies, a really helpful resource is the <a href="https://latinlexicon.org/word_study_tool.php">latin lexicon word study tool</a>. It's also not 100% accurate, but no strategy in NA really is so its still a good option </p>
+        <p><strong>Step 1: Copy paste your words into the box and hit search</strong></p>
+        <p><strong>Step 2: On this page look at the top left box on both words</strong></p>
+        <img src="images\noun_adj_example2.png" alt="example2" max-width = 100% height = auto width = auto> <img src="images\noun_adj_example3.png" alt="example3" max-width = 100% height = auto width = auto>
+        <p><strong>Step 3: If you see the same combonation of gender, case, and number in both squares, then you have a match and can click yes.</strong> In this case, they both have masculine accusative singular which means they would agree. If they don't have any that are all exactly the same in number, case, and gender, then it's a no.</p>
+
+        <p id = "table"> </p>
+
+        <script>
+
+          var allEndings = [['a', [112,123,423]], ['ae', [122,212,312,213]], ['ārum', [222]], ['īs', [322,522,323,523]], ['am', [412]],
+          ['ās', [422]], ['ā', [512,513]], ['us', [111]], ['ī', [121,211,213,311,313]], ['ōrum', [211,223]],
+          ['ō', [311,511,313,513]], ['um', [411,113,413]], ['ōs', [421]], ['ēs', [121,421,112,122,422]], ['is', [211,213,111]],
+          ['em', [411,421]], ['e', [511,513,413]], ['ia', [123,423]], ['ium', [221,223]], ['ūs', [121,211,213,421]],
+          ['ū', [113,313,413,513,511]], ['ua', [123,423]], ['uum', [221,223]], ['uī', [311]], ['eī', [212,312,213]],
+          ['ērum', [222,221]], ['ēbus', [322,522,321,521]], ['ē', [512]], ['ēī', [212,312,211,311]], ['ibus', [321,521,323,523]]];
+
+          function generate_table(ending1 = false, ending2 = false) {
+            while (document.getElementById('table').lastChild) {
+                document.getElementById('table').removeChild(document.getElementById('table').lastChild);
+            }
+            var element = document.createElement('table');
+            element.style.width = '75%';
+            element.style.border = '1px solid black';
+
+              for (let i = 0; i < 6; i++) {
+                const tr = element.insertRow();
+                for (let j = 0; j < allEndings.length; j++) {
+                  const td = tr.insertCell();
+                  if (i == 0){
+                    if (ending1 == false || ending2 == false){
+                      td.appendChild(document.createTextNode(`${allEndings[j][0]}`));
+                    }
+                    else{
+                      if (allEndings[j][0] == ending1 || allEndings[j][0] == ending2){
+                        td.appendChild(document.createTextNode(`${allEndings[j][0]}`));
+                      }
+                      else{
+                        td.appendChild(document.createTextNode(` `));
+                      }
+                    }
+                  }
+                  else{
+                    if (allEndings[j][1][i-1] != undefined){
+                      td.appendChild(document.createTextNode(`${allEndings[j][1][i-1]}`));
+                    }
+                    else{
+                      td.appendChild(document.createTextNode(` `));
+                    }
+                  }
+                  td.style.border = '1px solid black';
+                }
+              }
+              document.getElementById('table').appendChild(element);
+          }
+          generate_table();
+
+          function wordSolver(){
+            var words = [wordInput1.value, wordInput2.value];
+            var availableEndings = [];
+            var unknownWord = false;
+            var output = false;
+            for (let a = 0; a < words.length; a++) {
+              var tempList = [];
+              for (let b = 0; b < allEndings.length; b++) {
+                if (words[a].endsWith(allEndings[b][0]) == true){
+                  tempList.push(allEndings[b][0]);
+                }
+              }
+              availableEndings.push(tempList);
+            }
+            if (availableEndings[0].length >= 1 && availableEndings[1].length >= 1){
+              for (let a = 0; a < availableEndings.length; a++) {
+                var longestWord = '';
+                for (let b = 0; b < availableEndings[a].length; b++) {
+                  if (availableEndings[a][b].length >= longestWord.length){
+                    longestWord = availableEndings[a][b];
+                  }
+                }
+                availableEndings[a] = longestWord
+              }
+            }
+            else{
+              unknownWord = true;
+            }
+
+            if (unknownWord == false){
+              generate_table(availableEndings[0], availableEndings[1]);
+              var endingNumbers = [];
+              for (let a = 0; a < availableEndings.length; a++) {
+                for (let b = 0; b < allEndings.length; b++) {
+                  if (availableEndings[a] == allEndings[b][0]){
+                    endingNumbers.push(allEndings[b][1])
+                  }
+                }
+              }
+              for (let a = 0; a < endingNumbers[0].length; a++) {
+                if (endingNumbers[1].includes(endingNumbers[0][a])){
+                  output = true;
+                }
+              }
+            }
+
+            if (output == true){
+              document.getElementById("outputText").innerHTML = "Predicted Output: yes";
+            }
+            else{
+              document.getElementById("outputText").innerHTML = "Predicted Output: no";
+            }
+        console.log(output);
+        }
+        </script>
+
+        <input type="text" value="" id = "wordInput1">
+        <input type="text" value="" id = "wordInput2">
+        <button onclick="wordSolver()">Solve</button>
+        <button onclick="generate_table()">Reset Chart</button>
+        <h4 id="outputText">Predicted Output:</h4>
+        </div>
+		</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
