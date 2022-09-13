@@ -216,13 +216,6 @@
                 }
               }
             }
-
-            if (output == true){
-              document.getElementById("outputText").innerHTML = "Predicted Output: yes";
-            }
-            else{
-              document.getElementById("outputText").innerHTML = "Predicted Output: no";
-            }
             console.log(output);
           }
         </script>
@@ -231,7 +224,6 @@
         <input type="text" value="" id = "wordInput2">
         <button onclick="wordSolver()">Solve</button>
         <button onclick="generate_table()">Reset Chart</button>
-        <h4 id="outputText">Predicted Output:</h4>
         </div>
 		</div>
 
