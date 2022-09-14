@@ -55,7 +55,7 @@
       <div id="content" class="p-4 p-md-5 pt-5">
         <h2 class="mb-4">Noun Adjective</h2>
         <h3>Section 1: The basics and freebies</h3>
-        <img src="images\noun_adj_example1.png" alt="example1" max-width = 100% height = auto width = auto>
+        <p><img src="images\noun_adj_example1.png" alt="example1" width = 75%></p>
         <p>Each question has a latin noun and adjective. You can tell which is the noun by the text at the bottom: whichever one has the gender abreviation letter (f. m. or n.). In this case, you can tell that Solomonem is the noun because in the little text at the bottom, it has a m. next to it. The other word is going to be the adjective. All nouns and adjectives have three characteristics that have to agree/be the same: number case and gender. The following are all the possible numbers cases and genders.</p>
 
 
@@ -113,14 +113,54 @@
           </tr>
         </table>
 
-        <h3>Section 2: Helpful Tools: (Latin Lexicon and Inbuilt Chart Solver)</h3>
+        <h3>Section 2: Helpful Tools (Latin Lexicon and Inbuilt Chart Solver)</h3>
+        <h4>Latin Lexicon:</h4>
         <p>Aside from freebies, a really helpful resource is the <a href="https://latinlexicon.org/word_study_tool.php">latin lexicon word study tool</a>. It's also not 100% accurate, but no strategy in NA really is so its still a good option </p>
         <p><strong>Step 1: Copy paste your words into the box and hit search</strong></p>
         <p><strong>Step 2: On this page look at the top left box on both words</strong></p>
-        <img src="images\noun_adj_example2.png" alt="example2" max-width = 100% height = auto width = auto> <img src="images\noun_adj_example3.png" alt="example3" max-width = 100% height = auto width = auto>
+        <p><img src="images\noun_adj_example2.png" alt="example2" max-width = 100% height = auto width = auto> <img src="images\noun_adj_example3.png" alt="example3" max-width = 100% height = auto width = auto></p>
         <p><strong>Step 3: If you see the same combonation of gender, case, and number in both squares, then you have a match and can click yes.</strong> In this case, they both have masculine accusative singular which means they would agree. If they don't have any that are all exactly the same in number, case, and gender, then it's a no.</p>
 
-        <p id = "table"> </p>
+        <h4>Inbuilt Chart Solver:</h4>
+        <p>The chart shown below shows the most common latin endings and assigns them their own Case, Number, and Gender numbers. When comparing words, you can compare the endings of the words to check if any of the assigned numbers match.</p>
+        <table style="width:20%" >
+          <tr>
+            <th>Case</th>
+            <th>Number</th>
+            <th>Gender</th>
+          </tr>
+          <tr>
+            <th>Nom: 1</th>
+            <th>Sing: 1</th>
+            <th>Male: 1</th>
+          </tr>
+          <tr>
+            <th>Gen: 2</th>
+            <th>Plural: 2</th>
+            <th>Fem: 2</th>
+          </tr>
+          <tr>
+            <th>Dat: 3</th>
+            <th></th>
+            <th>Neu: 3</th>
+          </tr>
+          <tr>
+            <th>Acc: 4</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>Abl: 5</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </table>
+        &nbsp
+        <p><strong>Step 1: Copy and paste each word into their input slot, it doesnt necessarily matter the order, but both words need to have their own input boxes filled.</strong></p>
+        <p><strong>Step 2: After copying each word in, plress the "solve" button, this will automatically rebuild the chart to only display the ending each word has.</strong></p>
+        <p><strong>Step 3: Compare the numbers assigned to the ending column, if any of the numbers match the answer is yes, otherwise no</strong></p>
+
+        <p id = "table"></p>
 
         <script>
 
@@ -216,14 +256,22 @@
                 }
               }
             }
+
+            if (output == true){
+              document.getElementById("outputText").innerHTML = "Predicted Output: yes";
+            }
+            else{
+              document.getElementById("outputText").innerHTML = "Predicted Output: no";
+            }
             console.log(output);
           }
         </script>
-
+        <p><strong>If the chart doesnt change after hitting the word solve, that means one of the endings is unknown, it's best then to try and solve it using the latin lexicon method or just guessing no.</strong></p>
         <input type="text" value="" id = "wordInput1">
         <input type="text" value="" id = "wordInput2">
         <button onclick="wordSolver()">Solve</button>
         <button onclick="generate_table()">Reset Chart</button>
+        <h4 id="outputText">Predicted Output:</h4>
         </div>
 		</div>
 
