@@ -87,15 +87,11 @@
             if (word == ''){
               document.getElementById("outputText").innerHTML = 'Definitions: No word given'
             }else{
-              if (UrlExists(url + fileEncode(word))){
-                fetch('./latin_dictionary/' + fileEncode(word))
+              fetch('./latin_dictionary/' + fileEncode(word))
                   .then((response) => response.json())
                   .then((json) => {
                     document.getElementById("outputText").innerHTML = Object.keys(json);
                   })
-              }else{
-                document.getElementById("outputText").innerHTML = 'word not found';
-              }
             }
           }
         </script>
